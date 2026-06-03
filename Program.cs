@@ -9,6 +9,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<IPerguntaTagRepository, PerguntaTagRepository>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
