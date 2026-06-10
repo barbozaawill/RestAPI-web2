@@ -15,7 +15,7 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // Chave composta da tabela N-N
+        // chave composta da tabela N-N
         modelBuilder.Entity<PerguntaTag>()
             .HasKey(pt => new { pt.PerguntaId, pt.TagId });
 
@@ -29,7 +29,7 @@ public class AppDbContext : DbContext
             .WithMany(t => t.PerguntaTags)
             .HasForeignKey(pt => pt.TagId);
 
-        // Login único por usuário
+        // login único por usuário
         modelBuilder.Entity<Usuario>()
             .HasIndex(u => u.Login)
             .IsUnique();

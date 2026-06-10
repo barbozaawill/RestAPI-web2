@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CodeForum.Data;
 using CodeForum.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CodeForum.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class PerguntaController : ControllerBase
